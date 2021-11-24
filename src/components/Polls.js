@@ -3,8 +3,22 @@ import { connect } from "react-redux";
 import "./polls.css";
 import Question from "./Question";
 
+function compareTimestamps(a, b) {
+  const at = a.timestamp;
+  const bt = b.timestamp;
+
+  if (at < bt) {
+    return 1;
+  }
+  if (at > bt) {
+    return -1;
+  }
+  return 0;
+}
+
 function Polls(props) {
   const [pollsType, setPollsType] = useState("unanswered");
+
   return (
     <div className="polls">
       <div className="options">
@@ -31,19 +45,25 @@ function Polls(props) {
       </div>
       <div className="questions-list">
         {pollsType === "unanswered"
-          ? Object.keys(props.polls)
-              .filter((item) => !(item in props.answeredPolls))
+          ? Object.values(props.polls)
+              .filter((item) => !(item.id in props.answeredPolls))
+              .sort(compareTimestamps)
               .map((item) => (
                 <Question
-                  key={item}
-                  poll={props.polls[item]}
+                  key={item.id}
+                  poll={props.polls[item.id]}
                   answered={false}
                 />
               ))
-          : Object.keys(props.polls)
-              .filter((item) => item in props.answeredPolls)
+          : Object.values(props.polls)
+              .filter((item) => item.id in props.answeredPolls)
+              .sort(compareTimestamps)
               .map((item) => (
-                <Question key={item} poll={props.polls[item]} answered={true} />
+                <Question
+                  key={item.id}
+                  poll={props.polls[item.id]}
+                  answered={true}
+                />
               ))}
       </div>
     </div>
