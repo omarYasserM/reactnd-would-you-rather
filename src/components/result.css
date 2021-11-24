@@ -1,0 +1,15 @@
+.result {
+  width: 500px;
+}
+.results {
+  display: flex;
+  flex-direction: column;
+}
+.results > span {
+  margin-bottom: 30px;
+}
+
+.results > .user-answer {
+  font-size: larger;
+  font-weight: bold;
+}

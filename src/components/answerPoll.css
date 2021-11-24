@@ -1,0 +1,7 @@
+.answer-poll {
+  width: 450px;
+}
+.wyr-options {
+  display: flex;
+  flex-direction: column;
+}

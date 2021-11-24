@@ -1,0 +1,43 @@
+.polls {
+  border-radius: 5px;
+  box-shadow: #6a6a6a 0 0 4px 0px;
+  width: 450px;
+  height: 450px;
+  background-color: #f1faee;
+  z-index: 0;
+}
+.options {
+  display: flex;
+}
+.answered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  width: 50%;
+  height: 40px;
+  border-radius: 0 5px 0 0;
+  cursor: pointer;
+}
+.unanswered {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  width: 50%;
+  height: 40px;
+  border-radius: 5px 0 0 0;
+}
+.active-polls {
+  background-color: #f1faee;
+}
+
+.questions-list {
+  padding: 10px 15px;
+  height: 410px;
+  width: 100%;
+  overflow-y: scroll;
+
+  scroll-behavior: smooth;
+}
