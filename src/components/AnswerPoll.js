@@ -45,7 +45,7 @@ function AnswerPoll(props) {
                   props.answer({
                     user: props.currentUserId,
                     qid: params.id,
-                    answer: "optionOne",
+                    answer: "optionTwo",
                   });
                 }}
               />
